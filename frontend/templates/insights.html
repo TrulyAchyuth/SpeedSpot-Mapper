@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+{% block content %}
+<header class="page-header">
+  <span class="eyebrow">Insights</span>
+  <h1>Neighbourhood insights</h1>
+  <p class="lead">See which neighbourhoods are well connected and which need attention, from all of India down to your area.</p>
+</header>
+<div class="toolbar card" role="search" aria-label="Choose an area and filters">
+  <div class="toolbar__area" id="area-bar"></div>
+  <div class="toolbar__filters" id="filters"></div>
+</div>
+<div id="insights-content" class="insights" aria-live="polite"></div>
+{% endblock %}

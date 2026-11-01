@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="A phone measures speed, the result joins a 150 metre grid square, and squares build a map">
+  <!-- Original illustration for SpeedSpot Mapper: test → anonymised area → map. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 1. phone with gauge -->
+    <rect x="70" y="30" width="96" height="150" rx="18" fill="#FFFFFF" stroke="#263B32" stroke-width="4"/>
+    <path d="M94 118 a24 24 0 1 1 48 0" stroke="#DCE9DF" stroke-width="9"/>
+    <path d="M94 118 a24 24 0 0 1 38 -19" stroke="#638B72" stroke-width="9"/>
+    <path d="M118 118 l12 -14" stroke="#263B32" stroke-width="4"/>
+    <path d="M104 150 h28" stroke="#DCE9DF" stroke-width="6"/>
+    <!-- arrow -->
+    <path d="M200 105 h70 m-14 -12 l14 12 -14 12" stroke="#638B72" stroke-width="4" stroke-dasharray="2 9"/>
+    <!-- 2. grid with one highlighted square -->
+    <g stroke="#B9D0BF" stroke-width="2.5">
+      <rect x="300" y="45" width="120" height="120" rx="10" fill="#FFFFFF"/>
+      <path d="M340 45 v120 M380 45 v120 M300 85 h120 M300 125 h120"/>
+    </g>
+    <rect x="340" y="85" width="40" height="40" fill="#DCE9DF" stroke="#638B72" stroke-width="3"/>
+    <path d="M360 92 c-6 0-10 4-10 10 0 7 10 15 10 15s10-8 10-15c0-6-4-10-10-10Z" fill="#263B32"/>
+    <!-- arrow -->
+    <path d="M450 105 h70 m-14 -12 l14 12 -14 12" stroke="#638B72" stroke-width="4" stroke-dasharray="2 9"/>
+    <!-- 3. map of coloured areas -->
+    <rect x="550" y="45" width="120" height="120" rx="10" fill="#FFFFFF" stroke="#B9D0BF" stroke-width="2.5"/>
+    <g stroke="#FFFFFF" stroke-width="3">
+      <rect x="566" y="61" width="28" height="28" rx="4" fill="#638B72"/>
+      <rect x="596" y="61" width="28" height="28" rx="4" fill="#638B72"/>
+      <rect x="626" y="61" width="28" height="28" rx="4" fill="#DCE3DC"/>
+      <rect x="566" y="91" width="28" height="28" rx="4" fill="#C99A3E"/>
+      <rect x="596" y="91" width="28" height="28" rx="4" fill="#638B72"/>
+      <rect x="626" y="91" width="28" height="28" rx="4" fill="#B65F4B"/>
+      <rect x="566" y="121" width="28" height="28" rx="4" fill="#DCE3DC"/>
+      <rect x="596" y="121" width="28" height="28" rx="4" fill="#C99A3E"/>
+      <rect x="626" y="121" width="28" height="28" rx="4" fill="#638B72"/>
+    </g>
+  </g>
+</svg>

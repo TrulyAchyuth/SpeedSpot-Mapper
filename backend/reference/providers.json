@@ -1,0 +1,23 @@
+{
+  "_about": "Indian internet providers and their Autonomous System Numbers (ASNs). Every ASN was checked against the organisation name in the DB-IP ASN Lite database (2026-11); tests/unit/test_providers.py re-checks this whenever the database file is present. Only Indian entities are listed (e.g. Airtel's African networks are excluded).",
+  "providers": [
+    {"slug": "jio", "name": "Jio", "kind": "both", "asns": [55836]},
+    {"slug": "airtel", "name": "Airtel", "kind": "both", "asns": [9498, 9730, 24560, 45609]},
+    {"slug": "vi", "name": "Vi", "kind": "mobile", "asns": [38266, 45271, 55410, 55644, 134927]},
+    {"slug": "bsnl", "name": "BSNL", "kind": "both", "asns": [9829]},
+    {"slug": "mtnl", "name": "MTNL", "kind": "both", "asns": [17813]},
+    {"slug": "act", "name": "ACT Fibernet", "kind": "broadband", "asns": [18209, 24309, 55577, 131269]},
+    {"slug": "hathway", "name": "Hathway", "kind": "broadband", "asns": [17488]},
+    {"slug": "excitel", "name": "Excitel", "kind": "broadband", "asns": [133982]},
+    {"slug": "tata-play", "name": "Tata Play Fiber", "kind": "broadband", "asns": [132303, 134674]},
+    {"slug": "tata-tele", "name": "Tata Teleservices", "kind": "broadband", "asns": [17762, 58608, 134540]},
+    {"slug": "you", "name": "YOU Broadband", "kind": "broadband", "asns": [18207]},
+    {"slug": "alliance", "name": "Alliance Broadband", "kind": "broadband", "asns": [23860]},
+    {"slug": "spectra", "name": "Spectra", "kind": "broadband", "asns": [10029]},
+    {"slug": "asianet", "name": "Asianet Broadband", "kind": "broadband", "asns": [17465]},
+    {"slug": "gtpl", "name": "GTPL Broadband", "kind": "broadband", "asns": [135257, 135872]},
+    {"slug": "tikona", "name": "Tikona", "kind": "broadband", "asns": [45528]},
+    {"slug": "railwire", "name": "RailWire (RailTel)", "kind": "broadband", "asns": [24186, 135750, 151100]},
+    {"slug": "sify", "name": "Sify", "kind": "broadband", "asns": [9583]}
+  ]
+}

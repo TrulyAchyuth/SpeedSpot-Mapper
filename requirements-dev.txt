@@ -1,0 +1,7 @@
+-r requirements.txt
+pytest==9.2.0
+pytest-playwright==0.10.0      # browser tests (tests/e2e)
+axe-playwright-python==0.1.8   # automated accessibility checks (axe-core)
+pgserver==0.1.4                # throwaway PostgreSQL for tests/integration/test_postgres.py
+pip-audit==2.10.1              # dependency vulnerability scan
+bandit==1.9.4                  # static security analysis

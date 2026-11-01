@@ -1,0 +1,26 @@
+{# Explains why we want location BEFORE the browser asks. Driven by js/location.js. #}
+{% from "partials/icons.html" import icon %}
+<dialog class="sheet" id="location-dialog" aria-labelledby="location-title" aria-describedby="location-reason">
+  <div class="sheet__body" data-state="ask">
+    <div class="card__icon">{{ icon("pin") }}</div>
+    <h2 id="location-title" class="h3">Use your location?</h2>
+    <p id="location-reason" class="muted" data-slot="reason">We use it to show the area around you.</p>
+    <ul class="checklist">
+      <li>{{ icon("shield", "sm") }}<span>Your exact location stays on your device. Only the ~150 m area is ever used.</span></li>
+      <li>{{ icon("check", "sm") }}<span>You can say no and still use everything else.</span></li>
+    </ul>
+    <div class="button-row button-row--stack">
+      <button type="button" class="button button--primary" data-action="allow">{{ icon("locate") }} Allow location</button>
+      <button type="button" class="button button--ghost" data-action="cancel">Not now</button>
+    </div>
+  </div>
+  <div class="sheet__body" data-state="denied" hidden>
+    <div class="card__icon card__icon--warn">{{ icon("alert") }}</div>
+    <h2 class="h3">Location is turned off</h2>
+    <p class="muted" data-slot="message">Your browser didn't share your location.</p>
+    <p class="muted">To turn it on, open your browser's site settings (the icon next to the web address) and allow location for this site.</p>
+    <div class="button-row button-row--stack">
+      <button type="button" class="button button--secondary" data-action="cancel">OK</button>
+    </div>
+  </div>
+</dialog>

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+{% block content %}
+<header class="page-header">
+  <span class="eyebrow">How it works</span>
+  <h1>From one speed test to a map of India</h1>
+  <p class="lead">Every shared test adds a little more detail. Here is what happens, and why some areas don't have a score yet.</p>
+</header>
+
+<section class="card how-band" aria-labelledby="steps-title">
+  <h2 id="steps-title" class="visually-hidden">Three steps</h2>
+  <img class="how-band__art" src="{{ url_for('static', filename='assets/how-measurements-work.svg') }}" alt="" width="720" height="200">
+  <ol class="steps">
+    <li><span class="steps__number">1</span><div><strong>You test your internet</strong><p class="muted small">Your browser measures download, upload, response time and stability against a nearby M-Lab server.</p></div></li>
+    <li><span class="steps__number">2</span><div><strong>Your result joins a small area</strong><p class="muted small">If you choose to share, your phone turns your location into a ~150 m square. Your exact position never leaves your device.</p></div></li>
+    <li><span class="steps__number">3</span><div><strong>Areas get a score</strong><p class="muted small">Once enough people have tested, the area shows Good, Fair or Weak on the map.</p></div></li>
+  </ol>
+</section>
+
+<section class="home-section card-grid card-grid--2" aria-label="Scores and rules">
+  <div class="card">
+    <h2 class="h3">The Connection Score</h2>
+    <p class="muted">A single number out of 100 that balances what people feel most:</p>
+    <ul class="weight-list">
+      <li><span>Download speed</span><strong>40%</strong></li>
+      <li><span>Response time</span><strong>25%</strong></li>
+      <li><span>Upload speed</span><strong>20%</strong></li>
+      <li><span>Stability</span><strong>15%</strong></li>
+    </ul>
+    <div class="band-row">
+      <span class="score-badge score-badge--good">Good 70–100</span>
+      <span class="score-badge score-badge--fair">Fair 40–69</span>
+      <span class="score-badge score-badge--weak">Weak 0–39</span>
+    </div>
+    <p class="muted small">An area's score is the <em>middle</em> value (median) of its tests, so one unusual result can't swing it.</p>
+  </div>
+  <div class="card">
+    <h2 class="h3">Why "Not enough tests"?</h2>
+    <p class="muted">We only show a score when the data can fairly represent the place:</p>
+    <ul class="rule-list">
+      <li><span>Block (~150 m) or neighbourhood (~1 km)</span><strong>5+ tests</strong></li>
+      <li><span>City</span><strong>20+ tests, 3+ neighbourhoods</strong></li>
+      <li><span>District</span><strong>30+ tests, 5+ neighbourhoods</strong></li>
+      <li><span>State</span><strong>100+ tests across 3+ districts</strong></li>
+    </ul>
+    <p class="muted small">"No tests yet" and "Weak" are never the same thing. Only tests from the last 6 months count.</p>
+  </div>
+</section>
+
+<section class="home-section" aria-labelledby="faq-title">
+  <h2 id="faq-title" class="h3">Common questions</h2>
+  <div class="faq">
+    <details><summary>How do you know my provider?</summary><p>Your internet address belongs to a network run by a company. We look that up in a database on our own server for a moment, then forget the address. If you use a VPN, we say so, and that result isn't counted in area scores.</p></details>
+    <details><summary>Who runs the speed test?</summary><p>Measurement Lab (M-Lab), a non-profit research platform. M-Lab publishes every test, including your IP address, as open data. You're told this before each test.</p></details>
+    <details><summary>Can I test without sharing?</summary><p>Yes. Leave "Add my result to the community map" off. You'll still see your full result, and nothing is sent to SpeedSpot.</p></details>
+    <details><summary>Does a good score guarantee fast internet?</summary><p>No. Scores are based on past tests. Networks change during the day and over time, so treat them as a helpful guide.</p></details>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+{% block content %}
+<div class="speedtest" id="speedtest">
+  <header class="page-header page-header--center">
+    <span class="eyebrow">Speed Test</span>
+    <h1>How fast is your internet?</h1>
+    <p class="lead">Check your download, upload, response time and stability in about 30 seconds.</p>
+  </header>
+
+  <div class="card speedtest__card">
+    <div class="gauge" id="gauge" aria-hidden="true"></div>
+    <p class="speedtest__live" id="live-status" role="status" aria-live="polite">Ready when you are.</p>
+    <p class="provider-chip" id="provider-chip" aria-live="polite">{{ icon("signal") }}<span>Checking your provider…</span></p>
+
+    <!-- Step 1: choices + consent -->
+    <section class="speedtest__step" data-step="intro">
+      <fieldset class="field">
+        <legend class="field__label">How are you connected?</legend>
+        <div class="segmented" id="connection-type">
+          <label><input type="radio" name="connection" value="mobile"><span>Mobile data</span></label>
+          <label><input type="radio" name="connection" value="wifi"><span>Wi-Fi</span></label>
+          <label><input type="radio" name="connection" value="wired"><span>Cable</span></label>
+          <label><input type="radio" name="connection" value="unknown" checked><span>Not sure</span></label>
+        </div>
+      </fieldset>
+
+      <label class="toggle">
+        <input type="checkbox" id="share-toggle">
+        <span class="toggle__track" aria-hidden="true"><span class="toggle__thumb"></span></span>
+        <span class="toggle__text">
+          <strong>Add my result to the community map</strong>
+          <span class="muted">Uses your location to find your ~150 m area. Your exact location never leaves this device.</span>
+        </span>
+      </label>
+
+      <div class="notice notice--quiet">
+        {{ icon("info") }}
+        <div>
+          <p><strong>Before you start:</strong></p>
+          <ul class="plain-list">
+            <li>The test is run by <strong>Measurement Lab (M-Lab)</strong>, a non-profit research platform. M-Lab publishes every test, including your IP address, as open data and keeps it indefinitely. <a href="https://www.measurementlab.net/privacy/" target="_blank" rel="noopener">M-Lab's privacy policy</a></li>
+            <li>SpeedSpot uses your IP address only for a moment to recognise your provider. We never store it.</li>
+            <li>On a fast connection a test can use a few hundred MB of data. M-Lab allows up to 40 tests a day.</li>
+          </ul>
+        </div>
+      </div>
+
+      <button type="button" class="button button--primary button--lg button--block" id="start-test">{{ icon("gauge") }} Agree and start test</button>
+    </section>
+
+    <!-- Step 2: running -->
+    <section class="speedtest__step" data-step="running" hidden>
+      <ol class="phase-list" id="phase-list">
+        <li data-phase="server">Finding the nearest test server</li>
+        <li data-phase="download">Testing download</li>
+        <li data-phase="upload">Testing upload</li>
+      </ol>
+      <button type="button" class="button button--ghost button--block cancel-button" id="cancel-test">{{ icon("stop") }} Cancel test</button>
+    </section>
+
+    <!-- Step 3: results (filled by JS) -->
+    <section class="speedtest__step" data-step="results" hidden>
+      <div id="results"></div>
+    </section>
+
+    <!-- Error -->
+    <section class="speedtest__step" data-step="error" hidden>
+      <div id="test-error"></div>
+    </section>
+  </div>
+
+  <p class="speedtest__footnote muted">Response time and stability are measured during the test itself, using the network's own timing data.</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/ndt7/ndt7.js') }}"></script>
+{% endblock %}

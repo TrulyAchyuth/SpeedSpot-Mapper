@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+{% endblock %}
+{% block fullbleed %}
+<div class="explore" id="explore">
+  <h1 class="visually-hidden">Explore India</h1>
+  <div class="explore__map" id="map" role="region" aria-label="Map of India showing internet connection quality. Use the panel to browse areas by list."></div>
+
+  <aside class="explore__panel" id="panel" aria-label="Area details" data-sheet="peek">
+    <button type="button" class="sheet-handle" id="sheet-toggle" aria-expanded="false" aria-controls="panel-scroll">
+      <span class="sheet-handle__bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Show more details</span>
+    </button>
+    <div class="area-picker" id="map-search"></div>
+    <div class="explore__panel-scroll" id="panel-scroll">
+      <details class="map-options">
+        <summary>{{ icon("layers", "sm") }} Filters and map style</summary>
+        <div id="map-filters"></div>
+        <fieldset class="field field--compact">
+          <legend class="filter__label">Colour the map by</legend>
+          <div class="segmented segmented--2" id="colour-by">
+            <label><input type="radio" name="colour-by" value="score" checked><span>Connection score</span></label>
+            <label><input type="radio" name="colour-by" value="density"><span>Number of tests</span></label>
+          </div>
+        </fieldset>
+      </details>
+      <section class="nav-section" id="nav-section" aria-label="Find a better connection nearby" aria-live="polite"></section>
+      <nav class="breadcrumb" id="breadcrumb" aria-label="You are here"></nav>
+      <div id="panel-body" aria-live="polite"></div>
+    </div>
+  </aside>
+
+  <div class="map-controls" role="group" aria-label="Map controls">
+    <button type="button" class="map-control" id="zoom-in" aria-label="Zoom in">{{ icon("plus") }}</button>
+    <button type="button" class="map-control" id="zoom-out" aria-label="Zoom out">{{ icon("minus") }}</button>
+    <button type="button" class="map-control" id="locate-me" aria-label="Show my area">{{ icon("locate") }}</button>
+    <button type="button" class="map-control" id="reset-view" aria-label="Back to all of India">{{ icon("globe") }}</button>
+  </div>
+
+  <div class="map-legend" id="legend" aria-label="Map legend"></div>
+  <div class="map-toast" id="map-toast" role="status" hidden></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='vendor/leaflet/leaflet.js') }}"></script>
+{% endblock %}

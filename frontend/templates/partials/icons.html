@@ -1,0 +1,4 @@
+{# Line icons from the inline sprite (partials/sprite.html). Usage: {{ icon("map") }} #}
+{% macro icon(name, size="") -%}
+<svg class="icon{% if size %} icon--{{ size }}{% endif %}" aria-hidden="true" focusable="false"><use href="#i-{{ name }}"></use></svg>
+{%- endmacro %}

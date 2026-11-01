@@ -1,0 +1,122 @@
+/* SpeedSpot design tokens — the single source of truth for colour, type,
+   spacing, shape and motion. Components use these variables, never raw values.
+   See docs/DESIGN_SYSTEM.md for contrast notes and usage rules. */
+:root {
+  /* Brand palette (CLAUDE.md) */
+  --color-offwhite: #F7F8F5;
+  --color-sage: #DCE9DF;
+  --color-green: #638B72;
+  --color-forest: #263B32;
+  --color-grey: #E9EDE8;
+  --color-white: #FFFFFF;
+
+  /* Semantic roles */
+  --color-bg: var(--color-offwhite);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-grey);
+  --color-text: var(--color-forest);          /* ~11:1 on bg */
+  --color-text-muted: #55675D;                /* ~5.6:1 on bg — AA for body text */
+  --color-accent: var(--color-green);         /* icons, borders, large text only */
+  --color-accent-soft: var(--color-sage);
+  --color-border: #DDE3DC;
+  --color-focus: var(--color-green);
+  --color-primary: var(--color-forest);       /* button background */
+  --color-primary-hover: #31493F;
+  --color-on-primary: var(--color-white);
+
+  /* Connection score bands — always paired with a text label + icon */
+  --score-good-fill: #638B72;
+  --score-good-bg: #DCE9DF;
+  --score-good-text: #263B32;
+  --score-fair-fill: #C99A3E;
+  --score-fair-bg: #F4E9CF;
+  --score-fair-text: #6B4E0E;
+  --score-weak-fill: #B65F4B;
+  --score-weak-bg: #F3DCD5;
+  --score-weak-text: #7E3626;
+  --score-none-fill: #C9D1C8;
+  --score-none-bg: var(--color-grey);
+  --score-none-text: #55675D;
+
+  /* Map — boundaries stay subtle; colour is reserved for grounded scores */
+  --map-sea: #ECF0EB;
+  --map-land: #FBFCFA;
+  --map-boundary: #B4C1B7;
+  --map-insufficient: #DCE3DC;
+  --map-insufficient-stroke: #8E9C92;
+  /* Measurement density ("Colour by: Number of tests") — one green hue, light to dark */
+  --density-1: #CFE0D4;
+  --density-2: #8FB29C;
+  --density-3: #4B7560;
+
+  /* Typography — Inter, self-hosted (no font CDN sees our visitors), system fallback */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;                     /* 17px: comfortable for all ages */
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 1.6rem + 3.2vw, 3.5rem);
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Shape */
+  /* Controlled radius scale: controls 8–12, cards 16, sheets/panels 24 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Elevation — soft, green-tinted shadows */
+  --shadow-sm: 0 1px 2px rgba(38, 59, 50, 0.06);
+  --shadow-md: 0 4px 16px rgba(38, 59, 50, 0.08);
+  --shadow-lg: 0 12px 32px rgba(38, 59, 50, 0.10);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration: 250ms;
+
+  /* Layout */
+  --container-max: 72rem;
+  --gutter: var(--space-4);
+  --header-height: 4rem;
+  --topbar-height: 3.5rem;
+  --bottom-nav-height: 4.25rem;
+  --sidebar-width: 15.5rem;
+  --sidebar-width-collapsed: 4.75rem;
+  --content-max: 76rem;
+  --tap-target: 44px;
+  --panel-width: 400px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --gutter: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration: 0ms;
+  }
+}

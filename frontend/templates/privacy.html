@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block content %}
+<header class="page-header">
+  <span class="eyebrow">Privacy</span>
+  <h1>Your privacy comes first</h1>
+  <p class="lead">Here is exactly what happens when you use SpeedSpot, in plain words.</p>
+</header>
+
+<div class="card-grid card-grid--2">
+  <section class="card" aria-labelledby="we-keep">
+    <div class="card__icon">{{ icon("check") }}</div>
+    <h2 id="we-keep" class="h3">What we keep when you share a test</h2>
+    <ul class="checklist">
+      <li>{{ icon("check", "sm") }}<span>Your speed results: download, upload, response time and stability.</span></li>
+      <li>{{ icon("check", "sm") }}<span>The ~150 m area where you tested, and only if you switch on "Add my result to the community map".</span></li>
+      <li>{{ icon("check", "sm") }}<span>Your provider's name and network number (for example "Jio, network 55836"). This identifies a company, not you.</span></li>
+      <li>{{ icon("check", "sm") }}<span>The hour of the test, not the exact minute, and whether you said you were on mobile data or Wi-Fi.</span></li>
+    </ul>
+  </section>
+  <section class="card" aria-labelledby="we-never">
+    <div class="card__icon">{{ icon("shield") }}</div>
+    <h2 id="we-never" class="h3">What we never keep</h2>
+    <ul class="checklist">
+      <li>{{ icon("shield", "sm") }}<span>Your exact location. Your device turns it into a ~150 m area code before anything is sent.</span></li>
+      <li>{{ icon("shield", "sm") }}<span>Your IP address. We use it for a moment to recognise your provider (using a database on our own server) and to stop spam, then it's gone.</span></li>
+      <li>{{ icon("shield", "sm") }}<span>Your name, email, phone number, device ID or any account.</span></li>
+      <li>{{ icon("shield", "sm") }}<span>Advertising or tracking cookies.</span></li>
+    </ul>
+  </section>
+</div>
+
+<section class="card section-sm" aria-labelledby="mlab">
+  <h2 id="mlab" class="h3">{{ icon("gauge", "sm") }}The speed test is run by M-Lab</h2>
+  <p>Your browser measures your connection against servers run by <a href="https://www.measurementlab.net/" target="_blank" rel="noopener">Measurement Lab (M-Lab)</a>, a non-profit research platform. M-Lab publishes every test it runs, <strong>including your IP address</strong>, as open public data and keeps it indefinitely. M-Lab never receives your location from SpeedSpot. You are told this before every test and can choose not to test. <a href="https://www.measurementlab.net/privacy/" target="_blank" rel="noopener">Read M-Lab's privacy policy</a>.</p>
+</section>
+
+<section class="card section-sm" aria-labelledby="routes">
+  <h2 id="routes" class="h3">{{ icon("route", "sm") }}Finding a better connection nearby</h2>
+  <p>To suggest nearby places, SpeedSpot receives only your ~150 m area code, never your exact position. Distances on screen are worked out on your device. If you tap <strong>Show walking route</strong>, your device asks the OpenStreetMap routing service (<a href="https://routing.openstreetmap.de/about.html" target="_blank" rel="noopener">FOSSGIS</a>) for a route. That service receives your start and end points and keeps them in its server logs. <strong>Open in Google Maps</strong> sends the destination to Google. Suggestions are based on past tests and can't guarantee how fast the connection will be today.</p>
+</section>
+
+<section class="card section-sm" aria-labelledby="vpn">
+  <h2 id="vpn" class="h3">{{ icon("info", "sm") }}VPNs and unknown providers</h2>
+  <p>If your connection goes through a VPN, proxy or cloud network, a test measures that network rather than your local one. We still show you the result, but it doesn't count towards area scores. If we can't recognise your provider, we say so instead of guessing.</p>
+</section>
+
+<div class="notice section">
+  {{ icon("users") }}
+  <p>Areas need enough tests before a score appears (at least 5 for a neighbourhood). In public lists, a test's neighbourhood is only shown once that neighbourhood has 5 or more tests, so no single household can be singled out.</p>
+</div>
+
+<p class="muted small section-sm">Provider recognition uses the IP to ASN Lite database by <a href="https://db-ip.com" target="_blank" rel="noopener">DB-IP.com</a> (CC BY 4.0). Boundaries: Local Government Directory, Government of India. Places: GeoNames (CC BY 4.0). Street map: © OpenStreetMap contributors.</p>
+{% endblock %}

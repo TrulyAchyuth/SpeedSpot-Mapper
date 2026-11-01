@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+{% block content %}
+<section class="split-hero" aria-labelledby="about-title">
+  <div>
+    <span class="eyebrow">About SpeedSpot</span>
+    <h1 id="about-title">A community map of India's internet</h1>
+    <p class="lead">SpeedSpot Mapper turns everyday speed tests into a shared picture of how well each neighbourhood is connected, so people can choose wisely and cities can plan better.</p>
+    <div class="button-row">
+      <a class="button button--primary" href="{{ url_for('pages.speed_test') }}">{{ icon("gauge") }} Add your test</a>
+      <a class="button button--secondary" href="{{ url_for('pages.how_it_works') }}">{{ icon("steps") }} How it works</a>
+    </div>
+  </div>
+  <img class="split-hero__art" src="{{ url_for('static', filename='assets/city-connectivity.svg') }}" alt="" width="480" height="300">
+</section>
+
+<section class="home-section" aria-labelledby="who-title">
+  <h2 id="who-title" class="h3">Who it's for</h2>
+  <div class="action-grid">
+    <div class="action-tile action-tile--static">
+      <span class="action-tile__icon">{{ icon("home") }}</span>
+      <span class="action-tile__title">Residents and renters</span>
+      <span class="action-tile__text">Check a neighbourhood before you move, and compare providers before you sign up.</span>
+    </div>
+    <div class="action-tile action-tile--static">
+      <span class="action-tile__icon">{{ icon("users") }}</span>
+      <span class="action-tile__title">Students and remote workers</span>
+      <span class="action-tile__text">Find reliable spots for classes, calls and uploads.</span>
+    </div>
+    <div class="action-tile action-tile--static">
+      <span class="action-tile__icon">{{ icon("route") }}</span>
+      <span class="action-tile__title">Travellers</span>
+      <span class="action-tile__text">See which provider works where you're going.</span>
+    </div>
+    <div class="action-tile action-tile--static">
+      <span class="action-tile__icon">{{ icon("insights") }}</span>
+      <span class="action-tile__title">City planners</span>
+      <span class="action-tile__text">Spot under-served areas using area-level reports, never personal data.</span>
+    </div>
+  </div>
+</section>
+
+<section class="home-section card-grid card-grid--2" aria-label="Our principles and data sources">
+  <div class="card">
+    <h2 class="h3">What we stand for</h2>
+    <ul class="checklist">
+      <li>{{ icon("check", "sm") }}<span><strong>Honest numbers.</strong> An area only gets a score with enough tests, and we never invent results.</span></li>
+      <li>{{ icon("check", "sm") }}<span><strong>Privacy first.</strong> No exact locations, no stored IP addresses, no accounts.</span></li>
+      <li>{{ icon("check", "sm") }}<span><strong>Open and simple.</strong> Plain language for everyone, from students to grandparents.</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2 class="h3">Data and credits</h2>
+    <ul class="credit-list">
+      <li>Boundaries: Local Government Directory, Government of India</li>
+      <li>Speed tests: Measurement Lab (M-Lab) ndt7</li>
+      <li>Provider recognition: <a href="https://db-ip.com" target="_blank" rel="noopener">DB-IP.com</a> (CC BY 4.0)</li>
+      <li>Places: GeoNames (CC BY 4.0) · Street map: © OpenStreetMap contributors</li>
+      <li>Walking routes: FOSSGIS OpenStreetMap routing</li>
+    </ul>
+    <p class="muted small">Built by SpeedSpot Innovators (Achyuth and Jeevan) for BCSE316L Design of Smart Cities.</p>
+  </div>
+</section>
+{% endblock %}

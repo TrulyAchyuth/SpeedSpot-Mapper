@@ -1,0 +1,16 @@
+# Runtime dependencies (exact versions, tested with Python 3.12).
+Flask==3.1.3
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.1.6
+Flask-Migrate==4.1.0     # database migrations (Alembic)
+alembic==1.20.1
+Mako==1.4.3
+Flask-Limiter==4.1.1
+limits==5.8.0
+shapely==2.2.0           # point-in-polygon: which district a ~150 m block is in
+numpy==2.5.4             # required by shapely
+maxminddb==3.2.0         # reads the local IP-to-ASN database (provider detection)
+psycopg[binary]==3.3.6   # PostgreSQL driver (production database)
+whitenoise==6.12.0       # efficient static files in production
+python-dotenv==1.2.4
+gunicorn==26.2.0

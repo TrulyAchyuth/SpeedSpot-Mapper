@@ -1,0 +1,143 @@
+{% from "partials/icons.html" import icon %}
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F7F8F5">
+  <meta name="description" content="SpeedSpot Mapper helps you discover internet quality around you, compare providers and explore connected neighbourhoods across India. Your city. Your connection.">
+  <title>{% block title %}{{ page_title }} · SpeedSpot Mapper{% endblock %}</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='assets/logo.svg') }}">
+  <link rel="preload" href="{{ url_for('static', filename='fonts/inter-latin-wght-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tokens.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body class="app{% if full_bleed %} app--full{% endif %}">
+  {% include "partials/sprite.html" %}
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {# ---------- Desktop / tablet sidebar ---------- #}
+  <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+    <div class="sidebar__top">
+      <a class="brand" href="{{ url_for('pages.home') }}">
+        <img class="brand__mark" src="{{ url_for('static', filename='assets/logo.svg') }}" alt="" width="32" height="32">
+        <span class="sidebar__label">SpeedSpot</span>
+      </a>
+      <button type="button" class="icon-button" id="sidebar-toggle" aria-controls="sidebar" aria-expanded="true">
+        {{ icon("sidebar") }}<span class="visually-hidden" data-label>Collapse sidebar</span>
+      </button>
+    </div>
+    <nav aria-label="Main">
+      <ul class="sidebar__nav">
+        {% for item in nav_items %}
+        <li>
+          <a class="sidebar__link" href="{{ url_for(item.endpoint) }}" data-tooltip="{{ item.label }}"{% if request.endpoint == item.endpoint %} aria-current="page"{% endif %}>
+            {{ icon(item.icon) }}<span class="sidebar__label">{{ item.label }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <p class="sidebar__heading" id="learn-more-heading">Learn more</p>
+    <nav aria-labelledby="learn-more-heading">
+      <ul class="sidebar__secondary">
+        {% for item in secondary_nav_items %}
+        <li>
+          <a class="sidebar__link" href="{{ url_for(item.endpoint) }}" data-tooltip="{{ item.label }}"{% if request.endpoint == item.endpoint %} aria-current="page"{% endif %}>
+            {{ icon(item.icon) }}<span class="sidebar__label">{{ item.label }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__footer-item">
+        {{ icon("pin", "sm") }}
+        <span class="sidebar__footer-text"><strong>All of India</strong>Pilot around VIT Chennai</span>
+      </div>
+      <div class="sidebar__footer-item">
+        {{ icon("shield", "sm") }}
+        <span class="sidebar__footer-text"><strong>Private by design</strong>No exact locations or IP addresses stored</span>
+      </div>
+      <span class="sidebar__version">Version 1.0 · pilot</span>
+    </div>
+  </aside>
+
+  {# ---------- Phone top bar ---------- #}
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('pages.home') }}">
+      <img class="brand__mark" src="{{ url_for('static', filename='assets/logo.svg') }}" alt="" width="32" height="32">
+      <span>SpeedSpot</span>
+    </a>
+    <button type="button" class="icon-button" id="menu-open" aria-haspopup="dialog" aria-controls="menu-sheet">
+      {{ icon("menu") }}<span class="visually-hidden">More pages</span>
+    </button>
+  </header>
+
+  <div class="app__content">
+
+    <main id="main" class="site-main" tabindex="-1">
+      {% if full_bleed %}
+        {% block fullbleed %}{% endblock %}
+      {% else %}
+      <div class="container">
+        {% block content %}{% endblock %}
+      </div>
+      {% endif %}
+    </main>
+
+    {% if not full_bleed %}
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>SpeedSpot Mapper · Your city. Your connection.</p>
+        <nav aria-label="Footer">
+          <ul>
+            {% for item in secondary_nav_items %}
+            <li><a href="{{ url_for(item.endpoint) }}">{{ item.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    {% endif %}
+  </div>
+
+  {# ---------- Phone bottom navigation ---------- #}
+  <nav class="bottom-nav" aria-label="Main">
+    <ul>
+      {% for item in nav_items %}
+      <li>
+        <a class="bottom-nav__link" href="{{ url_for(item.endpoint) }}"{% if request.endpoint == item.endpoint %} aria-current="page"{% endif %}>
+          <span class="bottom-nav__icon">{{ icon(item.icon) }}</span>
+          <span>{{ item.short_label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <dialog class="sheet" id="menu-sheet" aria-labelledby="menu-title">
+    <div class="sheet__body">
+      <div class="sheet__header">
+        <h2 id="menu-title" class="h3">More from SpeedSpot</h2>
+        <button type="button" class="icon-button" data-close>{{ icon("close") }}<span class="visually-hidden">Close menu</span></button>
+      </div>
+      <ul class="menu-list">
+        {% for item in secondary_nav_items %}
+        <li><a href="{{ url_for(item.endpoint) }}"{% if request.endpoint == item.endpoint %} aria-current="page"{% endif %}>{{ icon(item.icon) }}{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+      <p class="muted small sheet__note">{{ icon("shield", "sm") }} No exact locations or IP addresses are stored.</p>
+    </div>
+  </dialog>
+
+  {% include "partials/location_dialog.html" %}
+  <script type="module" src="{{ url_for('static', filename='js/shell.js') }}"></script>
+  {% block scripts %}{% endblock %}
+  {% if page_script %}
+  <script type="module" src="{{ url_for('static', filename='js/pages/' ~ page_script ~ '.js') }}"></script>
+  {% endif %}
+</body>
+</html>

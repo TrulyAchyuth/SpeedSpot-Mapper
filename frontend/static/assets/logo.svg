@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SpeedSpot Mapper">
+  <rect width="64" height="64" rx="18" fill="#DCE9DF"/>
+  <path d="M32 50s-13-12.2-13-22a13 13 0 0 1 26 0c0 9.8-13 22-13 22Z" fill="#263B32"/>
+  <path d="M25.5 27.5a9 9 0 0 1 13 0" fill="none" stroke="#DCE9DF" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M28.6 31a4.6 4.6 0 0 1 6.8 0" fill="none" stroke="#DCE9DF" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="32" cy="34.6" r="1.8" fill="#DCE9DF"/>
+</svg>

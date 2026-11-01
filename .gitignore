@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+
+# Local data (databases, downloaded datasets)
+instance/
+data/
+*.db
+*.sqlite3
+*.mmdb
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/
+
+# Office lock files
+~$*
+
+# Browser-automation output
+.playwright-mcp/
+
+# Test and build output
+test-results/
+frontend/static/**/*.gz
+frontend/static/**/*.br
+
+# Original project presentation (contains personal details); kept locally, not in git
+SpeedSpot_Mapper_Enhanced.pptx

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Illustration of a city connected by signal waves">
+  <!-- Original illustration for SpeedSpot Mapper. -->
+  <defs>
+    <clipPath id="frame"><rect width="480" height="300" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="480" height="300" fill="#EEF4EF"/>
+    <circle cx="380" cy="70" r="34" fill="#F7F8F5"/>
+    <!-- far skyline -->
+    <g fill="#DCE9DF">
+      <rect x="10" y="150" width="46" height="120"/><rect x="62" y="120" width="34" height="150"/>
+      <rect x="102" y="160" width="40" height="110"/><rect x="300" y="135" width="38" height="135"/>
+      <rect x="344" y="165" width="50" height="105"/><rect x="400" y="125" width="34" height="145"/>
+      <rect x="440" y="155" width="40" height="115"/>
+    </g>
+    <!-- near skyline -->
+    <g fill="#B9D0BF">
+      <rect x="30" y="185" width="54" height="85" rx="4"/><rect x="92" y="170" width="44" height="100" rx="4"/>
+      <rect x="318" y="180" width="46" height="90" rx="4"/><rect x="372" y="195" width="58" height="75" rx="4"/>
+    </g>
+    <g fill="#F7F8F5" opacity="0.9">
+      <rect x="40" y="198" width="8" height="10" rx="1"/><rect x="56" y="198" width="8" height="10" rx="1"/><rect x="40" y="218" width="8" height="10" rx="1"/>
+      <rect x="102" y="184" width="8" height="10" rx="1"/><rect x="118" y="184" width="8" height="10" rx="1"/><rect x="102" y="204" width="8" height="10" rx="1"/>
+      <rect x="328" y="194" width="8" height="10" rx="1"/><rect x="344" y="194" width="8" height="10" rx="1"/><rect x="384" y="208" width="8" height="10" rx="1"/>
+    </g>
+    <!-- central tower with signal waves -->
+    <g stroke="#638B72" stroke-width="5" stroke-linecap="round" fill="none">
+      <path d="M240 260 L222 160 M240 260 L258 160 M228 196 L252 196 M226 226 L254 226"/>
+    </g>
+    <circle cx="240" cy="150" r="9" fill="#263B32"/>
+    <g fill="none" stroke="#638B72" stroke-linecap="round">
+      <path d="M212 122 a40 40 0 0 1 56 0" stroke-width="5"/>
+      <path d="M196 104 a64 64 0 0 1 88 0" stroke-width="4" opacity="0.7"/>
+      <path d="M180 86 a88 88 0 0 1 120 0" stroke-width="3" opacity="0.45"/>
+    </g>
+    <!-- ground and grid -->
+    <rect y="262" width="480" height="38" fill="#DCE9DF"/>
+    <g stroke="#F7F8F5" stroke-width="2" opacity="0.8">
+      <path d="M0 281 H480"/><path d="M60 262 V300 M140 262 V300 M220 262 V300 M300 262 V300 M380 262 V300 M460 262 V300"/>
+    </g>
+    <!-- map pins on the grid -->
+    <g>
+      <path d="M150 238 c-9 0-15 7-15 15 0 11 15 24 15 24s15-13 15-24c0-8-6-15-15-15Z" fill="#263B32"/>
+      <circle cx="150" cy="253" r="5" fill="#DCE9DF"/>
+      <path d="M352 244 c-7 0-12 5-12 12 0 8 12 19 12 19s12-11 12-19c0-7-5-12-12-12Z" fill="#638B72"/>
+      <circle cx="352" cy="256" r="4" fill="#F7F8F5"/>
+    </g>
+  </g>
+</svg>

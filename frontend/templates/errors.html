@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from "partials/icons.html" import icon %}
+{% block content %}
+<section class="card empty-state">
+  <div class="card__icon">{{ icon("pin", "lg") }}</div>
+  <h1 class="h2">{% if status == 404 %}Page not found{% else %}Something went wrong{% endif %}</h1>
+  <p class="muted">{{ message }}</p>
+  <a class="button button--primary" href="{{ url_for('pages.home') }}">{{ icon("home") }} Back to home</a>
+</section>
+{% endblock %}

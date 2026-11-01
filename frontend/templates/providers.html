@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+{% block content %}
+<header class="page-header">
+  <span class="eyebrow">Compare Providers</span>
+  <h1>Which provider works best here?</h1>
+  <p class="lead">Real results from people in your area, not advertising claims.</p>
+</header>
+<div class="toolbar card" role="search" aria-label="Choose an area and time period">
+  <div class="toolbar__area" id="area-bar"></div>
+  <div class="toolbar__filters" id="filters"></div>
+</div>
+<div id="providers-content" aria-live="polite"></div>
+{% endblock %}
