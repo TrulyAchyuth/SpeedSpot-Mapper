@@ -1,10 +1,10 @@
 # SpeedSpot Mapper — Project Status
 
-_Last updated: 2026-11-01 (final release audit)_
+_Last updated: 2026-11-01 (pushed to GitHub)_
 
 ## Current status
 
-**Ready for the campus pilot, pending deployment.** Every planned pilot feature is built and tested. Render deployment is **prepared and rehearsed locally**. Going live needs the project owner's Render account, GitHub push and a paid database plan (see `docs/DEPLOYMENT.md`).
+**Ready for the campus pilot, pending deployment.** Every planned pilot feature is built and tested. Render deployment is **prepared and rehearsed locally**. The code is on GitHub. Going live needs the project owner's Render account and a paid database plan (see `docs/DEPLOYMENT.md`).
 
 ## Phase overview
 
@@ -16,6 +16,13 @@ _Last updated: 2026-11-01 (final release audit)_
 | 8 | Accessibility, responsive QA | ✅ Automated axe + layout tests pass. A manual screen-reader pass is still recommended |
 | 9 | Security hardening and deployment preparation | ✅ Prepared and rehearsed. ⏳ **Not deployed** (needs owner account) |
 | 10 | Campus pilot | ⏳ Next |
+
+## GitHub repository (2026-11-01)
+- **Repository:** https://github.com/TrulyAchyuth/speedspot-mapper
+- **Owner:** `TrulyAchyuth` (sole collaborator, admin). No other collaborators, invitations or deploy keys.
+- **Visibility:** private. **Default branch:** `main`.
+- **Initial commit:** `9c1d852595d3325013363c50e331e75b0a3744a4` ("Initial commit: SpeedSpot Mapper India-wide connectivity platform"), 184 files. Pushed and verified: the remote `main` matches this commit.
+- Left out of git: `.env`, local databases, the ASN database, `.venv/`, screenshots, the scratch backup, and the original presentation file (it contains personal details).
 
 ## Final release audit (2026-11-01)
 - **Migration safety:** `b7c1e2d3f4a5_genuine_data_only` was tested on an existing SQLite database and on **PostgreSQL 16**. Both start from the old schema with genuine rows, generated rows (including one inside a genuine block), their cells and a cached statistic.
@@ -32,7 +39,7 @@ _Last updated: 2026-11-01 (final release audit)_
   Limit: ndt7-js's initial server-lookup request can't be aborted (no API). It finishes and is ignored.
 - **Real speed test (M-Lab, Chennai server):** 153.08 Mbps down, 18.66 Mbps up, 39.3 ms latency, 0.5 ms stability (TCP RTTVar), score 94. About 20 s. Not submitted: sharing was off because the automated browser has no genuine location. The submission path is covered by integration and browser tests.
 - **Tests:** `pytest` **335 passed, 0 skipped, 0 failed** (71 unit, 175 integration, 89 browser). JS **4 passed**.
-- **Git audit:** no secrets, tokens or keys in the 185 files to be committed. `.env`, `instance/` (local database), `data/` (ASN database), `.venv/`, caches, screenshots and test output are ignored. The scratch backup of the removed generated rows lives outside the repository.
+- **Git audit:** no secrets, tokens or keys in the 184 committed files. `.env`, `instance/` (local database), `data/` (ASN database), `.venv/`, caches, screenshots and test output are ignored. The scratch backup of the removed generated rows lives outside the repository.
 
 ## Genuine data only (2026-11-01)
 - **Removed the demo-data tool entirely:** `backend/services/demo_data.py`, the `flask demo-data` commands, the `ALLOW_DEMO_DATA` / `SPEEDSPOT_ALLOW_DEMO_DATA` switch (including the local `.env` line), the demo cache scope, every `includes_demo`/`is_demo` field, the CSV demo column, the demo banner and its CSS, the "includes demo data" notes and the banner icon.
@@ -151,7 +158,7 @@ Same machine and network, one sample each:
 Download and latency are consistent. **Upload was about half the reference.** This needs repeated comparison during the pilot before it's trusted (see `docs/TESTING.md`). This test published the machine's public IP to M-Lab's open data, as disclosed.
 
 ## Known limitations
-- **Not deployed.** Needs a Render account, a GitHub push and payment for durable Postgres. Production behaviour on Render itself (proxy hop count, cold starts) is unverified.
+- **Not deployed.** Needs a Render account and payment for durable Postgres (the GitHub repository exists). Production behaviour on Render itself (proxy hop count, cold starts) is unverified.
 - Upload accuracy is unconfirmed (above). Jitter is approximate (TCP RTT variation under load).
 - OpenStreetMap tiles and FOSSGIS routing are free, light-use services. Wider public use needs a tile provider and possibly a routing provider.
 - LGD boundaries haven't been formally checked against the Survey of India map. Cities are point-based.
@@ -159,9 +166,8 @@ Download and latency are consistent. **Upload was about half the reference.** Th
 - Rate-limit counters are in memory per process.
 - No manual screen-reader (VoiceOver/TalkBack) or real-device testing yet.
 - See `docs/PRIVACY.md` for remaining privacy limitations (M-Lab IP publication, determined manipulation, sparse blocks).
-- Nothing has been committed to git yet.
 
 ## Remaining work
-1. **Owner:** commit and push to GitHub, create the Render Blueprint, then verify per `docs/DEPLOYMENT.md`.
+1. **Owner:** create the Render Blueprint from the GitHub repository, then verify per `docs/DEPLOYMENT.md`.
 2. Pilot: repeated real-world tests (especially upload), a manual screen-reader pass, and testing on low-end Android phones.
 3. Before wider launch: a tile provider, a shared rate-limit store (Redis) if scaled out, and a formal boundary review.

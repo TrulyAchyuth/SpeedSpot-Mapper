@@ -12,7 +12,7 @@ This plan is written for someone learning while building. Where a technical idea
 | Item | State |
 |---|---|
 | Python | **3.12.16**, installed with `uv`, `.venv` recreated (3.9.6 was end-of-life) |
-| Git | Default branch is **`main`**. No commits or remote yet |
+| Git | Default branch is **`main`**. GitHub remote: https://github.com/TrulyAchyuth/speedspot-mapper (private) |
 | Specification | `SpeedSpot_Mapper_Enhanced.pptx`, 15 slides (DA2 mini project, BCSE316L Design of Smart Cities) |
 | Rules | `CLAUDE.md`: design system, navigation, stack, engineering standards |
 | Foundation (Phase 0) | ✅ Complete. See `PROJECT_STATUS.md` |
@@ -578,7 +578,7 @@ PostgreSQL/PostGIS, planner login, historical trends, alerts, reports, predictio
 ## 10. Development workflow
 
 - **Git:** one branch per phase (`phase-1-core-logic` …), merged into `main` when the phase is approved. Small, clearly described commits.
-- **GitHub:** we create the remote repository when you're ready (Phase 0 or later). Nothing is pushed without your say-so.
+- **GitHub:** private repository https://github.com/TrulyAchyuth/speedspot-mapper, created and pushed on 2026-11-01 with the owner's go-ahead. Nothing is pushed without the owner's say-so.
 - **Documentation:** `PROJECT_STATUS.md` after every phase, `docs/` updated alongside code, and short decision notes for big choices.
 
 ---
@@ -601,7 +601,7 @@ PostgreSQL/PostGIS, planner login, historical trends, alerts, reports, predictio
 |---|---|---|
 | 1 | Python version | ✅ Python 3.12+ (3.12.16 installed) |
 | 2 | Geographic scope | ✅ All of India, with the full hierarchy. VIT Chennai is the dev and pilot location |
-| 3 | Git branch | ✅ `main`. GitHub remote: not yet (needs your go-ahead) |
+| 3 | Git branch | ✅ `main`. GitHub remote: TrulyAchyuth/speedspot-mapper (private) |
 | 4 | Demo data | ✅ Removed entirely (2026-11-01): genuine measurements only, enforced in the database |
 | 5 | Speed-test engine | ✅ M-Lab ndt7, chosen after comparing it with Cloudflare from their own documentation and live checks. See `docs/decisions/0001-speed-test-engine.md` |
 | 6 | Boundary data source | ✅ LGD (Government of India) states and districts via bharatlas, plus GeoNames cities. Formal check against the Survey of India map still recommended before launch |

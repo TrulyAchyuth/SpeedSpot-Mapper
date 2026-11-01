@@ -1,6 +1,6 @@
 # Deploying SpeedSpot Mapper on Render
 
-**Status: deployment is prepared but NOT done.** It needs a Render account, a GitHub repository and a payment method. Those are manual steps for the project owner. Nothing has been deployed or verified in production.
+**Status: production deployment is still pending.** The code is on GitHub at https://github.com/TrulyAchyuth/speedspot-mapper (private, owner `TrulyAchyuth`, branch `main`). Deploying needs a Render account and a payment method, which are manual steps for the project owner. Nothing has been deployed or verified in production.
 
 ## What's prepared
 
@@ -23,7 +23,7 @@ Render's filesystem is **ephemeral**: a SQLite file is wiped on every redeploy, 
 Check current prices at https://render.com/pricing before choosing. Prices weren't confirmed from Render's own pages during preparation.
 
 ## Manual steps (project owner)
-1. Push the repository to GitHub (needs your go-ahead; nothing has been pushed).
+1. **Done:** the repository is on GitHub (https://github.com/TrulyAchyuth/speedspot-mapper). Because it's private, give Render access to it when connecting your GitHub account.
 2. In Render: **New → Blueprint**, pick the repository, and review the plan and costs it shows, then apply.
 3. Wait for the build. It installs dependencies, downloads the DB-IP ASN database, and pre-compresses static files. The start command runs `flask init-db` (migrations + reference data) and then Gunicorn.
 4. **Verify after deploy:**
